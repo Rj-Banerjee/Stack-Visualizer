@@ -1,0 +1,119 @@
+📁 Stack Visualizer – Parentheses Checker
+│
+├── 📄 package.json                    # Root package with dev scripts
+├── 📄 .gitignore                      # Git ignore rules
+├── 📄 README.md                       # Main documentation
+├── 📄 SETUP.md                        # Quick setup guide
+├── 📄 CHANGELOG.md                    # Version history
+├── 📄 PROJECT_SUMMARY.md              # Project architecture
+├── 📄 TREE_STRUCTURE.txt              # This file
+│
+├── 📂 backend/
+│   └── 📄 server.js                   # Express API server
+│       ├── POST /api/check            # Check expression
+│       └── GET /api/history           # Get history
+│
+└── 📂 frontend/
+    ├── 📄 index.html                  # HTML template
+    ├── 📄 package.json                 # Frontend dependencies
+    ├── 📄 vite.config.js               # Vite configuration
+    ├── 📄 tailwind.config.js           # Tailwind CSS config
+    ├── 📄 postcss.config.js            # PostCSS config
+    │
+    └── 📂 src/
+        ├── 📄 main.jsx                 # React entry point
+        ├── 📄 index.css                # Global styles
+        ├── 📄 App.jsx                  # Main app component
+        │
+        └── 📂 components/
+            ├── 📄 StackVisualizer.jsx  # Stack visualization
+            ├── 📄 InputSection.jsx     # Input controls
+            ├── 📄 HistorySection.jsx   # Check history
+            ├── 📄 DarkModeToggle.jsx  # Theme toggle
+            └── 📄 Header.jsx           # Page header
+
+═══════════════════════════════════════════════════════════════════
+
+📦 Dependencies Breakdown
+
+Root (Development):
+├── express@^4.18.2
+├── cors@^2.8.5
+├── nodemon@^3.0.1
+└── concurrently@^8.2.0
+
+Frontend:
+├── react@^18.2.0
+├── react-dom@^18.2.0
+├── framer-motion@^10.16.4
+├── axios@^1.6.0
+├── react-icons@^4.11.0
+├── @vitejs/plugin-react@^4.2.0
+├── autoprefixer@^10.4.16
+├── postcss@^8.4.31
+├── tailwindcss@^3.3.5
+└── vite@^5.0.0
+
+═══════════════════════════════════════════════════════════════════
+
+🎯 What Each Component Does
+
+App.jsx
+├── Orchestrates the entire application
+├── Manages state (stack, history, dark mode)
+├── Handles API calls with Axios
+├── Controls step-by-step animation timing
+└── Coordinates between all child components
+
+StackVisualizer.jsx
+├── Displays animated stack with Framer Motion
+├── Shows colored blocks for different bracket types
+├── Highlights current character being processed
+├── Animates push/pop operations
+└── Displays "TOP" indicator on top element
+
+InputSection.jsx
+├── Expression input field
+├── Check Balance button
+├── Reset button
+├── Quick example buttons
+└── Info tooltips
+
+HistorySection.jsx
+├── Shows last 5 checked expressions
+├── Displays timestamps
+├── Color-codes balanced/unbalanced
+└── Animated entry/exit
+
+DarkModeToggle.jsx
+├── Toggles between light/dark theme
+├── Persists preference in localStorage
+└── Animated icon transitions
+
+Header.jsx
+├── Branding and title
+├── Feature badges
+└── Gradient background
+
+═══════════════════════════════════════════════════════════════════
+
+🚀 Quick Commands
+
+Setup:
+├── npm install              # Install root deps
+├── cd frontend && npm install && cd ..  # Install frontend deps
+└── npm run dev              # Start both servers
+
+Development:
+├── npm run server           # Start backend only
+├── npm run client           # Start frontend only
+└── npm run dev              # Start both (recommended)
+
+Access:
+├── Frontend: http://localhost:3000
+└── Backend:  http://localhost:5000
+
+═══════════════════════════════════════════════════════════════════
+
+
+

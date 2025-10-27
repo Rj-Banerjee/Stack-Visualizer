@@ -1,0 +1,26 @@
+{
+  "name": "stack-visualizer",
+  "version": "1.0.0",
+  "description": "Full-stack Stack Visualizer - Parentheses Checker",
+  "main": "index.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "nodemon backend/server.js",
+    "client": "cd frontend && npm run dev"
+  },
+  "keywords": ["stack", "visualizer", "data-structures", "react", "express"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "concurrently": "^8.2.0"
+  }
+}
+
+
+
