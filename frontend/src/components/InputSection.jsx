@@ -37,9 +37,9 @@ const InputSection = ({ onCheck, onReset, isProcessing, expression, setExpressio
   };
 
   return (
-    <div className={`rounded-xl p-6 shadow-2xl ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
-      <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-        <span className="text-3xl">⌨️</span>
+    <div className={`rounded-xl p-4 md:p-6 shadow-2xl ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
+      <h2 className="text-xl md:text-2xl font-bold mb-4 flex items-center gap-2">
+        <span className="text-2xl md:text-3xl">⌨️</span>
         Enter Expression
       </h2>
 
@@ -50,20 +50,20 @@ const InputSection = ({ onCheck, onReset, isProcessing, expression, setExpressio
           onChange={(e) => setLocalExpression(e.target.value)}
           placeholder="e.g., ((a+b)*c)"
           disabled={isProcessing}
-          className={`w-full px-4 py-3 rounded-lg text-lg font-mono focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all ${
+          className={`w-full px-3 md:px-4 py-2 md:py-3 rounded-lg text-base md:text-lg font-mono focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all ${
             darkMode
               ? 'bg-gray-700 text-white border-gray-600'
               : 'bg-gray-100 text-gray-900 border-gray-300'
           }`}
         />
 
-        <div className="flex gap-3">
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
           <motion.button
             type="submit"
             disabled={isProcessing || !localExpression.trim()}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex-1 bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-3 px-6 rounded-lg font-bold text-lg shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+            className="flex-1 bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-2 md:py-3 px-4 md:px-6 rounded-lg font-bold text-base md:text-lg shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed transition-all"
           >
             {isProcessing ? '⏳ Processing...' : '✓ Check Balance'}
           </motion.button>
@@ -74,7 +74,7 @@ const InputSection = ({ onCheck, onReset, isProcessing, expression, setExpressio
             disabled={isProcessing}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-gradient-to-r from-gray-500 to-gray-600 text-white py-3 px-6 rounded-lg font-bold text-lg shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+            className="bg-gradient-to-r from-gray-500 to-gray-600 text-white py-2 md:py-3 px-4 md:px-6 rounded-lg font-bold text-base md:text-lg shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed transition-all"
           >
             ↻ Reset
           </motion.button>
@@ -82,11 +82,11 @@ const InputSection = ({ onCheck, onReset, isProcessing, expression, setExpressio
       </form>
 
       {/* Quick Examples */}
-      <div className="mt-6">
-        <div className="text-sm font-semibold mb-3 text-gray-600 dark:text-gray-300">
+      <div className="mt-4 md:mt-6">
+        <div className="text-xs md:text-sm font-semibold mb-2 md:mb-3 text-gray-600 dark:text-gray-300">
           Quick Examples:
         </div>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-1 md:gap-2">
           {quickExamples.map((example, index) => (
             <motion.button
               key={index}
@@ -94,7 +94,7 @@ const InputSection = ({ onCheck, onReset, isProcessing, expression, setExpressio
               disabled={isProcessing}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`px-3 py-1.5 rounded text-sm font-mono transition-all ${
+              className={`px-2 md:px-3 py-1 md:py-1.5 rounded text-xs md:text-sm font-mono transition-all ${
                 darkMode
                   ? 'bg-gray-700 text-gray-300 hover:bg-gray-600'
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'

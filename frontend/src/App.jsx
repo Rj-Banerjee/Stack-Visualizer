@@ -154,17 +154,17 @@ function App() {
       darkMode ? 'bg-gray-900 text-white' : 'bg-gradient-to-br from-blue-50 to-purple-50'
     }`}>
       <Header />
-      <div className="container mx-auto px-4 py-8 max-w-7xl">
-        <div className="mb-6 flex justify-between items-center">
-          <h1 className="text-4xl font-bold text-gradient">
+      <div className="container mx-auto px-4 py-4 md:py-8 max-w-7xl">
+        <div className="mb-4 md:mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gradient">
             Stack Visualizer
           </h1>
           <DarkModeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
           {/* Left Column */}
-          <div className="space-y-6">
+          <div className="space-y-4 md:space-y-6 order-2 xl:order-1">
             <InputSection
               onCheck={handleCheck}
               onReset={handleReset}
@@ -194,7 +194,7 @@ function App() {
           </div>
 
           {/* Right Column */}
-          <div>
+          <div className="order-1 xl:order-2">
             <StackVisualizer
               stack={stack}
               currentCharIndex={currentCharIndex}

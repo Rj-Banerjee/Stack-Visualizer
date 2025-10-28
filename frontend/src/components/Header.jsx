@@ -24,35 +24,35 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-6 shadow-2xl">
+    <header className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-4 md:py-6 shadow-2xl">
       <div className="container mx-auto px-4 max-w-7xl">
-        <h1 className="text-4xl md:text-5xl font-bold mb-2">Stack Visualizer</h1>
-        <p className="text-xl md:text-2xl opacity-90">Parentheses Checker - Interactive Stack Data Structure Demo</p>
-        <div className="mt-3 flex flex-wrap gap-2">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2">Stack Visualizer</h1>
+        <p className="text-sm sm:text-base md:text-xl lg:text-2xl opacity-90 mb-3">Parentheses Checker - Interactive Stack Data Structure Demo</p>
+        <div className="flex flex-wrap gap-1 sm:gap-2">
           <button
             onClick={() => handleFeatureClick('Push')}
-            className="bg-white/20 px-3 py-1 rounded-full text-sm font-semibold hover:bg-white/30 transition-all cursor-pointer transform hover:scale-105 active:scale-95"
+            className="bg-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold hover:bg-white/30 transition-all cursor-pointer transform hover:scale-105 active:scale-95"
             title="Click to learn about Push operation"
           >
             📥 Push Operation
           </button>
           <button
             onClick={() => handleFeatureClick('Pop')}
-            className="bg-white/20 px-3 py-1 rounded-full text-sm font-semibold hover:bg-white/30 transition-all cursor-pointer transform hover:scale-105 active:scale-95"
+            className="bg-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold hover:bg-white/30 transition-all cursor-pointer transform hover:scale-105 active:scale-95"
             title="Click to learn about Pop operation"
           >
             📤 Pop Operation
           </button>
           <button
             onClick={() => handleFeatureClick('Peek')}
-            className="bg-white/20 px-3 py-1 rounded-full text-sm font-semibold hover:bg-white/30 transition-all cursor-pointer transform hover:scale-105 active:scale-95"
+            className="bg-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold hover:bg-white/30 transition-all cursor-pointer transform hover:scale-105 active:scale-95"
             title="Click to learn about Peek operation"
           >
             👁️ Peek Operation
           </button>
           <button
             onClick={() => handleFeatureClick('Algorithm')}
-            className="bg-white/20 px-3 py-1 rounded-full text-sm font-semibold hover:bg-white/30 transition-all cursor-pointer transform hover:scale-105 active:scale-95"
+            className="bg-white/20 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold hover:bg-white/30 transition-all cursor-pointer transform hover:scale-105 active:scale-95"
             title="Click to learn about the algorithm"
           >
             🧠 Algorithm Visualization
