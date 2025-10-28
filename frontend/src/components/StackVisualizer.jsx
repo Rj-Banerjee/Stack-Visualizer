@@ -59,7 +59,7 @@ const StackVisualizer = ({ stack, currentCharIndex, expression, isProcessing, da
         </div>
         
         {stack.length === 0 ? (
-          <div className={`h-64 rounded-lg flex items-center justify-center ${
+          <div className={`h-64 rounded-lg flex items-center justify-center transition-all duration-300 ${
             darkMode ? 'bg-gray-700' : 'bg-gray-100'
           }`}>
             <div className="text-center">
@@ -68,40 +68,49 @@ const StackVisualizer = ({ stack, currentCharIndex, expression, isProcessing, da
             </div>
           </div>
         ) : (
-          <div className="h-64 overflow-y-auto p-4 bg-gray-50 dark:bg-gray-900 rounded-lg">
-            <div className="flex flex-col-reverse gap-2">
-              <AnimatePresence>
-                {stack.map((item, index) => (
-                  <motion.div
-                    key={`${item.char}-${item.index}`}
-                    initial={{ opacity: 0, y: -20, scale: 0.9 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, x: -100, scale: 0.9 }}
-                    transition={{ duration: 0.4 }}
-                    className={`relative ${
-                      index === stack.length - 1
-                        ? 'ring-4 ring-purple-500 dark:ring-purple-400 shadow-lg scale-105'
-                        : ''
-                    }`}
-                    style={{
-                      backgroundColor: getBracketColor(item.type),
-                      boxShadow: index === stack.length - 1
-                        ? `0 0 20px ${getBracketColor(item.type)}`
-                        : '0 2px 8px rgba(0,0,0,0.1)'
-                    }}
-                  >
-                    <div className="p-4 rounded-lg text-white text-center font-bold transform hover:scale-105 transition-transform duration-200">
-                      <div className="text-3xl">{item.char}</div>
-                      <div className="text-xs mt-1 opacity-90">Index {item.index}</div>
-                      {index === stack.length - 1 && (
-                        <div className="text-xs mt-1 font-semibold animate-pulse">
-                          TOP
-                        </div>
-                      )}
-                    </div>
-                  </motion.div>
-                ))}
-              </AnimatePresence>
+          <div 
+            className="rounded-lg p-4 bg-gray-50 dark:bg-gray-900 transition-all duration-500 overflow-hidden"
+            style={{
+              minHeight: '256px',
+              height: `${Math.max(256, stack.length * 90 + 32)}px`, // 90px per item + 32px padding
+              maxHeight: '600px'
+            }}
+          >
+            <div className="h-full overflow-y-auto pr-2">
+              <div className="flex flex-col-reverse gap-2">
+                <AnimatePresence>
+                  {stack.map((item, index) => (
+                    <motion.div
+                      key={`${item.char}-${item.index}`}
+                      initial={{ opacity: 0, y: -20, scale: 0.9 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, x: -100, scale: 0.9 }}
+                      transition={{ duration: 0.4 }}
+                      className={`relative ${
+                        index === stack.length - 1
+                          ? 'ring-4 ring-purple-500 dark:ring-purple-400 shadow-lg scale-105'
+                          : ''
+                      }`}
+                      style={{
+                        backgroundColor: getBracketColor(item.type),
+                        boxShadow: index === stack.length - 1
+                          ? `0 0 20px ${getBracketColor(item.type)}`
+                          : '0 2px 8px rgba(0,0,0,0.1)'
+                      }}
+                    >
+                      <div className="p-4 rounded-lg text-white text-center font-bold transform hover:scale-105 transition-transform duration-200">
+                        <div className="text-3xl">{item.char}</div>
+                        <div className="text-xs mt-1 opacity-90">Index {item.index}</div>
+                        {index === stack.length - 1 && (
+                          <div className="text-xs mt-1 font-semibold animate-pulse">
+                            TOP
+                          </div>
+                        )}
+                      </div>
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
+              </div>
             </div>
           </div>
         )}
