@@ -1,4 +1,5 @@
 {
+  "homepage": "https://Rj-Banerjee.github.io/stack-visualizer"
   "name": "stack-visualizer",
   "version": "1.0.0",
   "description": "Full-stack Stack Visualizer - Parentheses Checker",
@@ -8,6 +9,8 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "nodemon backend/server.js",
     "client": "cd frontend && npm run dev"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": ["stack", "visualizer", "data-structures", "react", "express"],
   "author": "",
