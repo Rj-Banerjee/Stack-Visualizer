@@ -135,42 +135,47 @@ app.get('/api/history', (req, res) => {
   res.json({ history });
 });
 
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`✅ Server is running on port ${PORT}`);
+});
+
 // Start server function
-async function startServer(port = 5000) {
-  const net = require('net');
+// async function startServer(port = 5000) {
+//   const net = require('net');
   
-  // Helper function to check if port is available
-  const isPortAvailable = (port) => {
-    return new Promise((resolve) => {
-      const server = net.createServer();
-      server.listen(port, () => {
-        server.once('close', () => resolve(true));
-        server.close();
-      });
-      server.on('error', () => resolve(false));
-    });
-  };
+//   // Helper function to check if port is available
+//   const isPortAvailable = (port) => {
+//     return new Promise((resolve) => {
+//       const server = net.createServer();
+//       server.listen(port, () => {
+//         server.once('close', () => resolve(true));
+//         server.close();
+//       });
+//       server.on('error', () => resolve(false));
+//     });
+//   };
 
-  // Try to find available port starting from specified port
-  let currentPort = port;
-  let maxAttempts = 10;
+//   // Try to find available port starting from specified port
+//   let currentPort = port;
+//   let maxAttempts = 10;
   
-  while (!await isPortAvailable(currentPort) && maxAttempts > 0) {
-    console.log(`⚠️  Port ${currentPort} is in use, trying ${currentPort + 1}...`);
-    currentPort++;
-    maxAttempts--;
-  }
+//   while (!await isPortAvailable(currentPort) && maxAttempts > 0) {
+//     console.log(`⚠️  Port ${currentPort} is in use, trying ${currentPort + 1}...`);
+//     currentPort++;
+//     maxAttempts--;
+//   }
 
-  if (maxAttempts === 0) {
-    console.error('❌ Could not find available port after 10 attempts');
-    process.exit(1);
-  }
+//   if (maxAttempts === 0) {
+//     console.error('❌ Could not find available port after 10 attempts');
+//     process.exit(1);
+//   }
 
-  // Start the server on available port
-  app.listen(currentPort, () => {
-    console.log(`✅ Server is running on http://localhost:${currentPort}`);
-  });
-}
+//   // Start the server on available port
+//   app.listen(currentPort, () => {
+//     console.log(`✅ Server is running on http://localhost:${currentPort}`);
+//   });
+// }
 
-// Start the server
-startServer(process.env.PORT || 5000);
+// // Start the server
+// startServer(process.env.PORT || 5000);
