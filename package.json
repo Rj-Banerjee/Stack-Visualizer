@@ -1,5 +1,5 @@
 {
-  "homepage": "https://Rj-Banerjee.github.io/stack-visualizer"
+  "homepage": "https://Rj-Banerjee.github.io/stack-visualizer",
   "name": "stack-visualizer",
   "version": "1.0.0",
   "description": "Full-stack Stack Visualizer - Parentheses Checker",
@@ -8,7 +8,7 @@
     "start": "node backend/server.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "nodemon backend/server.js",
-    "client": "cd frontend && npm run dev"
+    "client": "cd frontend && npm run dev",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
